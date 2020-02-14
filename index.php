@@ -44,7 +44,6 @@
         <tbody>
 
           <?php
-          $conn -> set_charset("utf8");
           $query = "SELECT * FROM core_members";
           $result_tasks = mysqli_query($conn, $query);
           

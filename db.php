@@ -9,6 +9,7 @@ $conn = mysqli_connect(
   'tamahdi_ali'
 ) or die(mysqli_erro($mysqli));
 
+$conn -> set_charset("utf8");
 
 
 
