@@ -46,7 +46,7 @@
           <?php
           $query = "SELECT * FROM core_members";
           $result_tasks = mysqli_query($conn, $query);
-          
+
           //mysql_query ("set collation_connection='utf8_general_ci'"); 
 
           while ($row = mysqli_fetch_assoc($result_tasks)) { ?>
@@ -59,7 +59,7 @@
                 <a href="edit.php?member_id=<?php echo $row['member_id'] ?>" class="btn btn-secondary">
                   <i class="fas fa-marker"></i>
                 </a>
-                <a href="delete_task.php?member_id=<?php echo $row['member_id'] ?>" class="btn btn-danger">
+                <a href="javascript:void(0)" onclick="return deleteContent('<?php echo $row['member_id']; ?>');" href="delete_task.php?member_id=<?php echo $row['member_id'] ?>" class="btn btn-danger">
                   <i class="far fa-trash-alt"></i>
                 </a>
               </td>
@@ -67,6 +67,17 @@
           <?php } ?>
         </tbody>
       </table>
+
+      <script>
+        function deleteContent(id) {
+          if (confirm('از پاک کردن این مورد اطمینان دارید ?')) {
+            window.location = 'delete_task.php?member_id=' + id;
+          }
+          return false;
+        }
+      </script>
+
+
     </div>
   </div>
 </main>
